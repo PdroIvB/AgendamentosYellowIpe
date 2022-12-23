@@ -15,8 +15,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
-            <th></th>
-            <th></th>
+            <th>Actions</th>
         </thead>
         <tbody>
             @foreach ($doctors as $doctor)
@@ -25,8 +24,7 @@
                     <td>{{$doctor->id}}</td>
                     <td>{{$doctor->user->name}}</td>
                     <td>{{$doctor->user->email}}</td>
-                    <td><input type="submit" value="Edit"></td>
-                    <td><input type="submit" value="Delete"></td>
+                    <td><div class="btn-group" role="group"><a href="/doctors/edit/{{$doctor->id}}" class="btn btn-outline-warning btn-sm">Edit</a><a href="/doctors/destroy/{{$doctor->id}}" class="btn btn-outline-danger btn-sm">Delete</a></div></td>
                 </tr>
 
             @endforeach

@@ -58,7 +58,7 @@ class UserController extends Controller
             $doctor->save();
         }
 
-        return redirect('/');
+        return redirect('/')->with('msg', 'User created successfully!');
     }
 
     /**

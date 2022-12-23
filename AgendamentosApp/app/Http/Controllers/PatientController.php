@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Patient;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -57,9 +58,14 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($email)
+    public function edit($id)
     {
-        dd($email);
+        $patient = Patient::findOrFail($id);
+
+        $user = $patient->user;
+        $user->class = 'patient';
+
+        return view('users.edit', ['user' => $user]);
     }
 
     /**
@@ -71,7 +77,14 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        $user->save();
+
+        return redirect('/patients')->with('msg', 'Patient updated successfully!');
     }
 
     /**
@@ -80,8 +93,12 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($email)
+    public function destroy($id)
     {
-        //
+        $patient = Patient::findOrFail($id);
+
+        $patient->delete();
+
+        return redirect('/')->with('msg', 'Patient deleted successfully!');
     }
 }

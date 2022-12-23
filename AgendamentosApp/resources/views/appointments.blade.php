@@ -17,8 +17,7 @@
             <th>Doctor</th>
             <th>Date</th>
             <th>Time</th>
-            <th></th>
-            <th></th>
+            <th>Actions</th>
         </thead>
         <tbody>
 
@@ -29,10 +28,28 @@
                     <td>{{$appointment->patient->user->name}}</td>
                     <td>{{$appointment->patient->user->email}}</td>
                     <td>{{$appointment->doctor->user->name}}</td>
-                    <td>{{$appointment->date}}</td>
+                    <td>{{date('d/m/Y', strtotime($appointment->date))}}</td>
                     <td>{{$appointment->time}}</td>
-                    <td><input type="submit" value="Edit"></td>
-                    <td><input type="submit" value="Delete"></td>
+
+                    @if (!$appointment->deleted_at)
+
+                    <td>
+                        <form action="/appointments/{{$appointment->id}}" method="post">
+                            <div class="btn-group" role="group">
+                                <a href="/appointments/edit/{{$appointment->id}}" class="btn btn-outline-warning btn-sm">Edit</a>
+                                @csrf
+                                @method('delete')
+                                <input type="submit" class="btn btn-outline-danger btn-sm" value="Cancel">
+                            </div>
+                        </form>
+                    </td>
+
+                    @else
+
+                    <td>Appointment Canceled</td>
+
+                    @endif
+
                 </tr>
 
             @endforeach
