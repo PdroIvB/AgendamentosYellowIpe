@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="col-md-6 offset-md-6" id="user-create-container">
+<div class="col-md-6 offset-md-3" id="user-create-container">
 
     <h1 class="display-5">Edit {{$user->class}}</h1>
 
@@ -13,16 +13,22 @@
         @csrf
 
         <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{$user->name}}">
+            <div class="input-size">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{$user->name}}">
+            </div>
         </div>
 
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}">
+            <div class="input-size">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}">
+            </div>
         </div>
 
-        <input type="submit" class="btn btn-primary" value="Update User">
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Update User">
+        </div>
 
     </form>
 

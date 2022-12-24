@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use Illuminate\Http\Request;
-use App\Models\Patient;
 use App\Models\User;
 use App\Models\Doctor;
 
@@ -68,17 +67,6 @@ class AppointmentController extends Controller
         $appointment->save();
 
         return redirect('/');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**

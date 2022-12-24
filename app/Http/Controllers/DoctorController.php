@@ -21,38 +21,6 @@ class DoctorController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -97,8 +65,13 @@ class DoctorController extends Controller
     {
         $doctor = Doctor::findOrFail($id);
 
-        $doctor->delete();
+        if(!count($doctor->appointments)) {
 
-        return redirect('/doctors')->with('msg', 'Doctor deleted successfully!');
+            $doctor->delete();
+
+            return redirect('/doctors')->with('msg', 'Doctor deleted successfully!');
+        }
+
+        return redirect('doctors')->with('msg', "This doctor has appointments. Can't delete it");
     }
 }
