@@ -104,10 +104,11 @@ class AppointmentController extends Controller
         $userPatient = User::where('email', $request->email)->with('patient')->first();
 
         if (!$userPatient) {
-            return response([
-                'error' => 1,
-                'message' => 'Patient not found.'
-            ], 404);
+            return redirect('/make-appointment')->with('msg', 'Patient not found. Write an existing patient email.');
+        }
+
+        if(!$request->date){
+            return redirect('/make-appointment')->with('msg', 'Write a valid date!');
         }
 
         $appointment->patient_id = $userPatient->patient->id;
