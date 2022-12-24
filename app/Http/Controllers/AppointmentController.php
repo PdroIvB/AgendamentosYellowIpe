@@ -17,7 +17,13 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::with(['patient.user', 'doctor.user'])->withTrashed()->get();
+        $appointments = Appointment::with([
+            'patient' => function ($query) {
+                $query->withTrashed();
+            }, 'patient.user',
+            'doctor' => function ($query) {
+                $query->withTrashed();
+        }, 'doctor.user'])->withTrashed()->get();
 
         return view('appointments', ['appointments' => $appointments]);
     }

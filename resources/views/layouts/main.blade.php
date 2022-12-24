@@ -15,26 +15,24 @@
     <body>
 
         <header id="header">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="/patients" class="nav-link">Patients</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/doctors" class="nav-link">Doctors</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/" class="nav-link">Appointments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/register-user" class="nav-link">Register User</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/make-appointment" class="nav-link">Make Appointment</a>
-                        </li>
-                    </ul>
-                </div>
+            <nav class="navbar navbar-expand navbar-light">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="/patients" class="nav-link">Patients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/doctors" class="nav-link">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/register-user" class="nav-link">Register User</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/make-appointment" class="nav-link">Make Appointment</a>
+                    </li>
+                </ul>
             </nav>
         </header>
 

@@ -99,6 +99,6 @@ class DoctorController extends Controller
 
         $doctor->delete();
 
-        return redirect('/')->with('msg', 'Doctor deleted successfully!');
+        return redirect('/doctors')->with('msg', 'Doctor deleted successfully!');
     }
 }

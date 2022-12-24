@@ -99,6 +99,6 @@ class PatientController extends Controller
 
         $patient->delete();
 
-        return redirect('/')->with('msg', 'Patient deleted successfully!');
+        return redirect('/patients')->with('msg', 'Patient deleted successfully!');
     }
 }
