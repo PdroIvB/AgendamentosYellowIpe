@@ -14,44 +14,53 @@
     </head>
     <body>
 
-        <header id="header">
-            <nav class="navbar navbar-expand navbar-light">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="/patients" class="nav-link">Patients</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/doctors" class="nav-link">Doctors</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">Appointments</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/register-user" class="nav-link">Register User</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/make-appointment" class="nav-link">Make Appointment</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+        <section>
+            <header id="header" class="container">
+                <nav class="navbar navbar-expand navbar-light">
+                    <ul class="navbar-nav navlist">
 
-        <main>
-            <div class="container">
-                <div class="row">
-                    @if (session('msg'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{session('msg')}}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <div class="navs">
+                            <li class="nav-item">
+                                <a href="/patients" class="nav-link">Patients</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/doctors" class="nav-link">Doctors</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">Appointments</a>
+                            </li>
                         </div>
-                    @endif
-                    @yield('content')
+
+                        <div class="navs">
+                            <li class="nav-item">
+                                <a href="/register-user" class="nav-link">Register User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/make-appointment" class="nav-link">Make Appointment</a>
+                            </li>
+                        </div>
+
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="container">
+                    <div class="row">
+                        @if (session('msg'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{session('msg')}}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+                        @yield('content')
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </section>
 
         <footer>
-            Agendamentos YellowIpe &copy; 2022
+            <p>Agendamentos YellowIpe &copy; 2022</p>
         </footer>
 
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
