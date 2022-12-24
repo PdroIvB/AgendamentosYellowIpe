@@ -34,7 +34,8 @@ para executar as migrations e montar o banco de dados.
 
 ### Principais desafios:
     - utilizar o Blade, template engine do Laravel, para criar as views do front.
-        -> Há meses desenvolvendo apenas api's no Laravel, voltar para desenvolver o front foi desafiador relembrar e aprender mais sobre essa ferramenta e instrumento.
+        -> Há meses desenvolvendo apenas api's no Laravel, voltar para desenvolver o front
+        foi desafiador relembrar e aprender mais sobre essa ferramenta e instrumento.
 
     - servir o projeto inteiro, front, back e bd.
 
